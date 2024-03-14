@@ -87,31 +87,33 @@ for group_name in groups:
 
 # Wypełnianie tabeli Grades
 def assign_grade(score):
-    if score >= 90:
-        return 'A'
-    elif score >= 80:
-        return 'B'
-    elif score >= 70:
-        return 'C'
-    elif score >= 60:
-        return 'D'
+    if score >= 91:
+        return 5.0
+    elif score >= 81:
+        return 4.5
+    elif score >= 71:
+        return 4.0
+    elif score >= 61:
+        return 3.5
+    elif score >= 51:
+        return 3.0
     else:
-        return 'F'
+        return 2.0
 
-def assign_modifier(score):
-    if score % 10 >= 7:
-        return '+'
-    elif score % 10 <= 3:
-        return '-'
-    else:
-        return ''
+# def assign_modifier(score):
+#     if score % 10 >= 7:
+#         return '+'
+#     elif score % 10 <= 3:
+#         return '-'
+#     else:
+#         return ''
 
 for student_id in range(1, number_of_students + 1):
     for _ in range(20):
         score = random.randint(0, 100)
         grade_letter = assign_grade(score)
-        modifier = assign_modifier(score)
-        final_grade = grade_letter + modifier
+        #modifier = assign_modifier(score)
+        final_grade = grade_letter # modifier
         subject_id = random.randint(1, 8)  # Wybór z przedmiotów od 1 do 8
         start_date = datetime(2023, 10, 1)
         end_date = datetime(2024, 1, 31)
